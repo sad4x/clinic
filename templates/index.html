@@ -82,7 +82,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="/" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
@@ -168,13 +168,15 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-                    <h1 class="mb-4">Why You Should Trust Us? Get Know About Us!</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Quality health care</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Only Qualified Doctors</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Medical Research Professionals</p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                    {% for about in abouts %}
+                    <h1 class="mb-4">{{ about.title }}</h1>
+                    <p>{{ about.text|slice:'0:200'}}</p>
+                    <p class="mb-4">{{ about.text|slice:'200:' }}</p>
+                    {% endfor %}
+                {% for guarantee in guarantees %}
+                    <p><i class="far fa-check-circle text-primary me-3"></i>{{ guarantee.guarantee }}</p>
+                {% endfor %}
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="/about/">Read More</a>
                 </div>
             </div>
         </div>
@@ -190,66 +192,18 @@
                 <h1>Health Care Solutions</h1>
             </div>
             <div class="row g-4">
+                {% for service in services %}
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item bg-light rounded h-100 p-5">
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-heartbeat text-primary fs-4"></i>
+                            <i class="{{ service.icon }}"></i>
                         </div>
-                        <h4 class="mb-3">Cardiology</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                        <h4 class="mb-3">{{ service.title }}</h4>
+                        <p class="mb-4">{{ service.text }}</p>
+                        <a class="btn" href="/service/"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded h-100 p-5">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-x-ray text-primary fs-4"></i>
-                        </div>
-                        <h4 class="mb-3">Pulmonary</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item bg-light rounded h-100 p-5">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-brain text-primary fs-4"></i>
-                        </div>
-                        <h4 class="mb-3">Neurology</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light rounded h-100 p-5">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-wheelchair text-primary fs-4"></i>
-                        </div>
-                        <h4 class="mb-3">Orthopedics</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded h-100 p-5">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-tooth text-primary fs-4"></i>
-                        </div>
-                        <h4 class="mb-3">Dental Surgery</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item bg-light rounded h-100 p-5">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <i class="fa fa-vials text-primary fs-4"></i>
-                        </div>
-                        <h4 class="mb-3">Laboratory</h4>
-                        <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -266,50 +220,19 @@
                         <h1 class="text-white mb-4">Why Choose Us</h1>
                         <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
                         <div class="row g-4">
+                            {% for feature in features %}
                             <div class="col-6">
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
                                         <i class="fa fa-user-md text-primary"></i>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Experience</p>
-                                        <h5 class="text-white mb-0">Doctors</h5>
+                                        <p class="text-white mb-2">{{ feature.title1 }}</p>
+                                        <h5 class="text-white mb-0">{{ feature.title2 }}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-check text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Quality</p>
-                                        <h5 class="text-white mb-0">Services</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-comment-medical text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Positive</p>
-                                        <h5 class="text-white mb-0">Consultation</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-headphones text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">24 Hours</p>
-                                        <h5 class="text-white mb-0">Support</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -332,70 +255,24 @@
                 <h1>Our Experience Doctors</h1>
             </div>
             <div class="row g-4">
+                {% for doctor in doctors %}
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ doctor.image.url }}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
+                            <h5>{{ doctor.name }}</h5>
+                            <p class="text-primary">{{ doctor.job }}</p>
                             <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square" href="{{ doctor.fc }}"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href="{{ doctor.twitter }}"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href="{{ doctor.inst }}"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -488,30 +365,16 @@
                 <h1>What Say Our Patients!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                {% for testimonial in testimonials %}
                 <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'main/img/testimonial-1.jpg' %}" style="width: 100px; height: 100px;">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ testimonial.image.url }}" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
+                        <p>{{ testimonial.text }}</p>
+                        <h5 class="mb-1">{{ testimonial.name }}</h5>
+                        <span class="fst-italic">{{ testimonial.proffesion }}</span>
                     </div>
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Profession</span>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -544,9 +407,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="/about/">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="/service/">Our Services</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>
