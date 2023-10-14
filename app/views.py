@@ -60,7 +60,7 @@ def appointment(request):
         Appointment.objects.create(name=name,email=email,phone=phone,doctor=doctor,date=date,time=time,problem=problem)
         return redirect('/')
 
-    return render(request,'appointment.html')
+    return render(request,'appointment.html', {'doctors':Doctor.objects.all()})
 def about(request):
     context = {
         'abouts':About.objects.all(),
@@ -73,22 +73,36 @@ def about_more(request):
         'abouts':About.objects.all(),
         'guarantees':Guarantee.objects.all()
     }
-    return render(request,'about.html',context)
+    return render(request,'about_more.html',context)
 
 def error(request):
     return render(request,'404.html')
 
 def contact(request):
+    if request.POST:
+
     return render(request,'contact.html')
 
 def feature(request):
-    return render(request,'feature.html')
+    context = {
+        'features':Feature.objects.all()
+    }
+    return render(request,'feature.html',context)
 
 def service(request):
-    return render(request,'service.html')
+    context = {
+        'services':Service.objects.all()
+    }
+    return render(request,'service.html',context)
 
 def team(request):
-    return render(request,'team.html')
+    context = {
+        'doctors':Doctor.objects.all()
+    }
+    return render(request,'team.html',context)
 
 def testimonial(request):
-    return render(request,'testimonial.html')
+    context = {
+        'testimonials':Testimonial.objects.all()
+    }
+    return render(request,'testimonial.html',context)

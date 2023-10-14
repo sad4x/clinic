@@ -123,20 +123,19 @@
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid rounded w-75 align-self-end" src="{{ image.image.url }}" alt="">
-                    </div>
             </div>
             {% for about in abouts %}
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="col-lg-10 wow fadeIn" data-wow-delay="0.5s">
                 <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
                 <h1 class="mb-4">{{ about.title }}</h1>
-                <p>{{ about.text|slice:'0:150' }}</p>
-                <p class="mb-4">{{ about.text|slice:'150:' }}</p>
+                <p>{{ about.text|slice:'0:500' }}</p>
+                <img src="{{ about.image1.url }}">
+                <p>{{ about.text|slice:'500:1000' }}</p>
+                <img src="{{ about.image2.url }}">
+                <p>{{ about.text|slice:'1000:' }}</p>
+                <img src="{{ about.image3.url }}">
             {% endfor %}
-            {% for guarantee in guarantees %}
-                <p><i class="far fa-check-circle text-primary me-3"></i>{{ guarantee.guarantee }}</p>
-            {% endfor %}
+
             <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
             </div>
         </div>
