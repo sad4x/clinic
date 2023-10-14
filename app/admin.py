@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from .models import About, Guarantee, Service, Feature, Doctor, Testimonial
+from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment
 
 @admin.register(About)
 class AboutAdmin(ModelAdmin):
@@ -40,3 +40,10 @@ class TestimonialAdmin(ModelAdmin):
     list_display_links = ['name']
     search_fields = ['name','proffesion']
     list_editable = ['text']
+
+@admin.register(Appointment)
+class AppointmentAdmin(ModelAdmin):
+    list_display = ['name','email','phone','doctor','date','time','problem']
+    list_display_links = ['name']
+    search_fields = ['name','email','phone','doctor']
+    list_editable = ['doctor','problem']

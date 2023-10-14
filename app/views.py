@@ -46,3 +46,13 @@ def register(request):
         return redirect('/login/')
 
     return render(request,'register.html')
+
+def appointment(request):
+    if request.POST:
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        doctor = request.POST.get('doctor')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        problem = request.POST.get('problem')
