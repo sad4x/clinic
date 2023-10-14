@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from app.views import main, login_u, logout_u,register,appointment, about,error,contact,feature,service,team,testimonial
+from app.views import main, login_u, logout_u,register,appointment, about,error,contact,feature,service,team,testimonial,about_more
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('register/',register),
     path('appointment/',appointment),
     path('about/',about),
+    path('about_more/',about_more),
     path('service/',service),
     path('error/',error),
     path('contact/',contact),

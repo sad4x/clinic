@@ -3,13 +3,12 @@ from django.db import models
 class About(models.Model):
     title = models.CharField(max_length=150)
     text = models.TextField()
+    image1 = models.ImageField(upload_to='images/about', null=True,blank=True)
+    image2 = models.ImageField(upload_to='images/about', null=True,blank=True)
+    image3 = models.ImageField(upload_to='images/about', null=True,blank=True)
 
     def __str__(self):
         return self.title
-
-class Images(models.Model):
-    image = models.ImageField(upload_to='images/images')
-
 
 class Guarantee(models.Model):
     guarantee = models.CharField(max_length=60)

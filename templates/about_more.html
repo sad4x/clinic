@@ -123,11 +123,9 @@
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                {% for image in images %}
                     <div class="d-flex flex-column">
                         <img class="img-fluid rounded w-75 align-self-end" src="{{ image.image.url }}" alt="">
                     </div>
-                {% endfor %}
             </div>
             {% for about in abouts %}
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -139,7 +137,7 @@
             {% for guarantee in guarantees %}
                 <p><i class="far fa-check-circle text-primary me-3"></i>{{ guarantee.guarantee }}</p>
             {% endfor %}
-            <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="/about_more/">Read More</a>
+            <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
             </div>
         </div>
     </div>

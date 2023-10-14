@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment, Images
+from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment
 
 def main(request):
     context = {
@@ -64,7 +64,13 @@ def appointment(request):
 def about(request):
     context = {
         'abouts':About.objects.all(),
-        'images':Images.objects.all(),
+        'guarantees':Guarantee.objects.all()
+    }
+    return render(request,'about.html',context)
+
+def about_more(request):
+    context = {
+        'abouts':About.objects.all(),
         'guarantees':Guarantee.objects.all()
     }
     return render(request,'about.html',context)
