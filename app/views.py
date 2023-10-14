@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment
+from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment, Images
 
 def main(request):
     context = {
@@ -59,3 +59,30 @@ def appointment(request):
         problem = request.POST.get('problem')
         Appointment.objects.create(name=name,email=email,phone=phone,doctor=doctor,date=date,time=time,problem=problem)
         return redirect('/')
+
+    return render(request,'appointment.html')
+def about(request):
+    context = {
+        'abouts':About.objects.all(),
+        'images':Images.objects.all(),
+        'guarantees':Guarantee.objects.all()
+    }
+    return render(request,'about.html',context)
+
+def error(request):
+    return render(request,'404.html')
+
+def contact(request):
+    return render(request,'contact.html')
+
+def feature(request):
+    return render(request,'feature.html')
+
+def service(request):
+    return render(request,'service.html')
+
+def team(request):
+    return render(request,'team.html')
+
+def testimonial(request):
+    return render(request,'testimonial.html')

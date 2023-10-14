@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from app.views import main, login_u, logout_u,register,appointment
+from app.views import main, login_u, logout_u,register,appointment, about,error,contact,feature,service,team,testimonial
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,12 @@ urlpatterns = [
     path('login/',login_u),
     path('logout/',logout_u),
     path('register/',register),
-    path('appointment/',appointment)
+    path('appointment/',appointment),
+    path('about/',about),
+    path('service/',service),
+    path('error/',error),
+    path('contact/',contact),
+    path('feature/',feature),
+    path('team/',team),
+    path('testimonial/',testimonial),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

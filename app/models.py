@@ -7,6 +7,10 @@ class About(models.Model):
     def __str__(self):
         return self.title
 
+class Images(models.Model):
+    image = models.ImageField(upload_to='images/images')
+
+
 class Guarantee(models.Model):
     guarantee = models.CharField(max_length=60)
 

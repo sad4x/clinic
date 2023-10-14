@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment
+from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment, Images
 
 @admin.register(About)
 class AboutAdmin(ModelAdmin):
@@ -47,3 +47,9 @@ class AppointmentAdmin(ModelAdmin):
     list_display_links = ['name']
     search_fields = ['name','email','phone','doctor']
     list_editable = ['doctor','problem']
+
+@admin.register(Images)
+class ImageAdmin(ModelAdmin):
+    list_display = ['image']
+    list_display_links = ['image']
+    search_fields = ['image']
