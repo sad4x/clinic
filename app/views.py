@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment
+from .models import About, Guarantee, Service, Feature, Doctor, Testimonial, Appointment, Contact
 
 def main(request):
     context = {
@@ -80,6 +80,12 @@ def error(request):
 
 def contact(request):
     if request.POST:
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        Contact.objects.create(name=name,email=email,subject=subject,message=message)
+        return redirect('/')
 
     return render(request,'contact.html')
 
